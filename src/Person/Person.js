@@ -1,7 +1,7 @@
 import React from 'react';
 
-const person = () => {
-    return <p>This is Functional Component. i am {Math.floor(Math.random() * 30)} years old</p>
+const person = (props) => {
+    return <p>Hello, My name is {props.name}. I am {props.age} years old</p>
 }
 
 
