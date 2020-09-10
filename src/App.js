@@ -7,6 +7,8 @@ function App() {
     <div className="App">
       <h1>Hii, From React</h1>
       <PersonFunc />
+      <PersonFunc />
+      <PersonFunc />
     </div>
 
   );
