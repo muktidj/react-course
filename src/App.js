@@ -12,6 +12,8 @@ class App extends Component {
     otherState: 'Some other value'
   }
 
+
+
   switchNameHandler = () => {
     //
     this.setState({
@@ -22,6 +24,8 @@ class App extends Component {
       ]
     })
   }
+
+  
 
   render() {
    return (
