@@ -9,7 +9,8 @@ class App extends Component {
       {name:'Dwi', age:Math.floor(Math.random() * 30)},
       {name:'Jatmoko', age:Math.floor(Math.random() * 30)}
     ],
-    otherState: 'Some other value'
+    otherState: 'Some other value',
+    showPersons: false
   }
 
 
@@ -25,6 +26,7 @@ class App extends Component {
     })
   }
 
+
   nameChangeHandler = (event) => {
     this.setState({
       persons: [
@@ -33,6 +35,11 @@ class App extends Component {
         {name:event.target.value, age:23}
       ]
     })
+  }
+
+  toggleNameHandler = () => {
+    const doesShowPerson = this.state.showPersons
+    this.setState({ showPersons: !doesShowPerson})
   }
 
 
@@ -54,7 +61,10 @@ class App extends Component {
       <h1>Hii, From React</h1>
       <button
       style={styleButton}
-      onClick={() => this.switchNameHandler('Mukti Dwi Jatmoko!')}>Switch</button>
+      onClick={this.toggleNameHandler}>Switch</button>
+      {
+        this.state.showPersons === true ?
+      <div>
       <PersonFunc
         name={this.state.persons[0].name}
         age={this.state.persons[0].age}/>
@@ -67,6 +77,10 @@ class App extends Component {
       age={this.state.persons[2].age}
       changed={this.nameChangeHandler}
       />
+      </div> : null
+
+      }
+
     </div>
 
     );
