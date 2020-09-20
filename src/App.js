@@ -39,7 +39,11 @@ class App extends Component {
   }
 
   deletePersonHandler = (personIndex) => {
-    const persons = this.state.persons;
+    // Untuk mengupdate sebuah state kita harus membuat
+    // Salinan dahulu dari object asli, ini cara yang dianjurkan.
+    // Bisa menggunakan Slice atau spread
+    // const persons = this.state.persons.slice();
+    const persons = [...this.state.persons]
     persons.splice(personIndex, 1)
     this.setState({persons: persons})
   }
