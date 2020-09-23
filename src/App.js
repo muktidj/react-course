@@ -33,7 +33,7 @@ class App extends Component {
     const personIndex = this.state.persons.findIndex(perIndex => {
       return perIndex.id === id
     })
-   
+
 
     const person = {
       ...this.state.persons[personIndex]
@@ -69,7 +69,8 @@ class App extends Component {
   render() {
 
     const styleButton = {
-      backgroundColor: 'white',
+      backgroundColor: 'green',
+      color: 'white',
       font: 'inherit',
       border: '2px solid black',
       padding: '8px',
@@ -82,7 +83,8 @@ class App extends Component {
     if (this.state.showPersons) {
       persons = (
       <div>
-        {this.state.persons.map((person, index) => {
+        {
+          this.state.persons.map((person, index) => {
           return (
             <PersonFunc
             click={() => this.deletePersonHandler(index)}
@@ -93,17 +95,29 @@ class App extends Component {
 
             />
           )
-        })}
+        }
+        )
+        }
 
       </div>
 
       )
+      styleButton.backgroundColor = 'red'
+    }
+
+    const classes = []
+    if(this.state.persons.length <= 2) {
+      classes.push('red')
+    }
+    if(this.state.persons.length <= 1) {
+      classes.push('bold')
     }
 
 
    return (
     <div className="App">
       <h1>Hii, From React</h1>
+      <p className={classes.join(' ')}>React is awesome, thanks facebook</p>
       <button
       style={styleButton}
       onClick={this.toggleNameHandler}>Switch</button>
@@ -111,7 +125,7 @@ class App extends Component {
 
     </div>
 
-    );
+    )
   }
 }
 
