@@ -28,14 +28,25 @@ class App extends Component {
 
 
 
-  nameChangeHandler = (event) => {
-    this.setState({
-      persons: [
-        {name:'Mukti', age:22},
-        {name:'Dwi Mukti', age:21},
-        {name:event.target.value, age:23}
-      ]
+  nameChangeHandler = (event, id) => {
+
+    const personIndex = this.state.persons.findIndex(perIndex => {
+      return perIndex.id === id
     })
+   
+
+    const person = {
+      ...this.state.persons[personIndex]
+    }
+
+    // const person = Object.assign({}, this.state.persons[personIndex])
+
+    person.name = event.target.value
+
+    const persons = [...this.state.persons]
+    persons[personIndex] = person
+
+    this.setState({ persons : persons })
   }
 
   deletePersonHandler = (personIndex) => {
@@ -78,6 +89,7 @@ class App extends Component {
             name={person.name}
             age={person.age}
             key={person.id}
+            changed={(event)=> this.nameChangeHandler(event, person.id)}
 
             />
           )
