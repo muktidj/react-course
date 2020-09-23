@@ -5,9 +5,9 @@ import PersonFunc from './Person/Person';
 class App extends Component {
   state = {
     persons: [
-      {name:'Mukti', age:Math.floor(Math.random() * 30)},
-      {name:'Dwi', age:Math.floor(Math.random() * 30)},
-      {name:'Jatmoko', age:Math.floor(Math.random() * 30)}
+      {id:'key1', name:'Mukti', age:Math.floor(Math.random() * 30)},
+      {id:'key2', name:'Dwi', age:Math.floor(Math.random() * 30)},
+      {id:'key3', name:'Jatmoko', age:Math.floor(Math.random() * 30)}
     ],
     otherState: 'Some other value',
     showPersons: false
@@ -77,6 +77,7 @@ class App extends Component {
             click={() => this.deletePersonHandler(index)}
             name={person.name}
             age={person.age}
+            key={person.id}
 
             />
           )
