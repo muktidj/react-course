@@ -14,6 +14,12 @@ const StyledDiv = styled.div`
 
     @media (min-width: 500px){
         width: 450px;
+
+    &:hover {
+        background-color: lightgreen;
+        color: white;
+        font-weight: bold;
+    }
     }
 `;
 
