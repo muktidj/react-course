@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Radium, {StyleRoot} from 'radium'
-import PersonFunc from './Person/Person';
+import PersonFunc from '../components/Persons/Person/Person'
 
 class App extends Component {
   state = {
@@ -134,7 +134,7 @@ class App extends Component {
       onClick={this.toggleNameHandler}>Switch</button>
       {persons}
     </div>
-    
+
      </StyleRoot>
 
     )
